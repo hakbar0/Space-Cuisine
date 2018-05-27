@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rocket : MonoBehaviour {
+public class Rocket : MonoBehaviour
+{
 
     [SerializeField] float rcsThrust = 100f; //Allows change in editor but not in other scripts
     [SerializeField] float mainThrust = 10f;
@@ -11,17 +12,19 @@ public class Rocket : MonoBehaviour {
     Rigidbody rigidBody;
     AudioSource audioSource;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         rigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         Thrust();
         Rotate();
-	}
+    }
 
     private void Thrust()
     {
@@ -42,12 +45,31 @@ public class Rocket : MonoBehaviour {
 
         float rotationThisFrame = rcsThrust * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.A))transform.Rotate(Vector3.forward * rotationThisFrame); // z axis rotate
+        if (Input.GetKey(KeyCode.A)) transform.Rotate(Vector3.forward * rotationThisFrame); // z axis rotate
 
         else if (Input.GetKey(KeyCode.D)) transform.Rotate(-Vector3.forward * rotationThisFrame);
 
         rigidBody.freezeRotation = false; //resume physics control of physics rotation.
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Friendly":
+                print("Safe");
+                break;
+
+            case "Fuel":
+                print("Fuel");
+                break;
+
+            default:
+                print("Dead");
+                break;
+        }
+    }
 
 }
+
+
