@@ -351,7 +351,17 @@ Prefab:
     - target: {fileID: 54921611488813926, guid: 80f56386227b54e74b0e953572217c8e,
         type: 2}
       propertyPath: m_Drag
-      value: 0.5
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114042910026998904, guid: 80f56386227b54e74b0e953572217c8e,
+        type: 2}
+      propertyPath: rcsThrust
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 114042910026998904, guid: 80f56386227b54e74b0e953572217c8e,
+        type: 2}
+      propertyPath: mainThrust
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80f56386227b54e74b0e953572217c8e, type: 2}
