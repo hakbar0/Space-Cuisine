@@ -1682,7 +1682,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1502008572930698, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_Name
-      value: Obstacle (86)
+      value: movingObstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
@@ -1724,7 +1724,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_RootOrder
-      value: 80
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_LocalScale.x
@@ -1991,7 +1991,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_RootOrder
-      value: 78
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_LocalScale.x
@@ -2066,7 +2066,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_RootOrder
-      value: 79
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_LocalScale.x
@@ -2479,6 +2479,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7,
     type: 2}
   m_PrefabInternal: {fileID: 1266239878}
+--- !u!1 &1271952290 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1502008572930698, guid: 5a72db156d46f4950a697ae26b990ee7,
+    type: 2}
+  m_PrefabInternal: {fileID: 982871023}
+--- !u!114 &1271952291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1271952290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 823d0051913554401a5cc5def5005116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementVector: {x: -7, y: 0, z: 0}
+  period: 2
 --- !u!1001 &1285110847
 Prefab:
   m_ObjectHideFlags: 0
@@ -3083,7 +3101,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_RootOrder
-      value: 77
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_LocalScale.x
@@ -3228,7 +3246,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_RootOrder
-      value: 76
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_LocalScale.x
@@ -3298,7 +3316,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_RootOrder
-      value: 81
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_LocalScale.x
@@ -3593,7 +3611,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_RootOrder
-      value: 83
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_LocalScale.x
@@ -3963,7 +3981,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_RootOrder
-      value: 82
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_LocalScale.x
