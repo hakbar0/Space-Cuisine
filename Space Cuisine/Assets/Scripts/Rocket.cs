@@ -7,6 +7,9 @@ public class Rocket : MonoBehaviour
 
     [SerializeField] float rcsThrust = 100f; //Allows change in editor but not in other scripts
     [SerializeField] float mainThrust = 10f;
+    [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip Death;
+    [SerializeField] AudioClip loadLevelSound;
 
     Rigidbody rigidBody;
     AudioSource audioSource;
@@ -35,13 +38,15 @@ public class Rocket : MonoBehaviour
     {
         float thrustThisFrame = mainThrust * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.Space))
-        {
-            rigidBody.AddRelativeForce(Vector3.up * thrustThisFrame); // can rotate when thrusting. Use relative so acts on direction.
-            if (!audioSource.isPlaying) audioSource.Play();
-        }
-
+        if (Input.GetKey(KeyCode.Space)) ApplyThrust(thrustThisFrame);
+            
         else audioSource.Stop();
+    }
+
+    private void ApplyThrust(float thrustThisFrame)
+    {
+        rigidBody.AddRelativeForce(Vector3.up * thrustThisFrame); // can rotate when thrusting. Use relative so acts on direction.
+        if (!audioSource.isPlaying) audioSource.PlayOneShot(mainEngine);
     }
 
     private void Rotate()
@@ -64,17 +69,14 @@ public class Rocket : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Friendly":
-  
                 break;
 
             case "Finish":
-                state = State.Transcending;
-                Invoke("LoadNextScene", 1f);
+                StartSucessSequence();
                 break;
 
             default:
-                state = State.Dieing;
-                Invoke("LoadFirstScene", 1f);
+                StartDeathSequence();
                 break;
         }
     }
@@ -87,6 +89,22 @@ public class Rocket : MonoBehaviour
     private void LoadFirstScene()
     {
         SceneManager.LoadScene(0);
+    }
+
+    private void StartSucessSequence()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(loadLevelSound);
+        state = State.Transcending;
+        Invoke("LoadNextScene", 2f);
+    }
+
+    private void StartDeathSequence()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(Death);
+        state = State.Dieing;
+        Invoke("LoadFirstScene", 2f);
     }
 }
 
