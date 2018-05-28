@@ -3,13 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class Rocket : MonoBehaviour
 {
-    //todo fix lighting bug
-
+    
     [SerializeField] float rcsThrust = 100f; //Allows change in editor but not in other scripts
     [SerializeField] float mainThrust = 10f;
+
     [SerializeField] AudioClip mainEngine;
     [SerializeField] AudioClip Death;
     [SerializeField] AudioClip loadLevelSound;
+
+    [SerializeField] ParticleSystem mainEngineParticles;
+    [SerializeField] ParticleSystem deathParticles;
+    [SerializeField] ParticleSystem successParticles;
 
     Rigidbody rigidBody;
     AudioSource audioSource;
@@ -40,13 +44,18 @@ public class Rocket : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space)) ApplyThrust(thrustThisFrame);
             
-        else audioSource.Stop();
+        else 
+        {
+            audioSource.Stop();
+            mainEngineParticles.Stop();
+        }
     }
 
     private void ApplyThrust(float thrustThisFrame)
     {
         rigidBody.AddRelativeForce(Vector3.up * thrustThisFrame); // can rotate when thrusting. Use relative so acts on direction.
         if (!audioSource.isPlaying) audioSource.PlayOneShot(mainEngine);
+        mainEngineParticles.Play();
     }
 
     private void Rotate()
@@ -94,6 +103,7 @@ public class Rocket : MonoBehaviour
     private void StartSucessSequence()
     {
         audioSource.Stop();
+        successParticles.Play();
         audioSource.PlayOneShot(loadLevelSound);
         state = State.Transcending;
         Invoke("LoadNextScene", 2f);
@@ -102,6 +112,7 @@ public class Rocket : MonoBehaviour
     private void StartDeathSequence()
     {
         audioSource.Stop();
+        deathParticles.Play();
         audioSource.PlayOneShot(Death);
         state = State.Dieing;
         Invoke("LoadFirstScene", 2f);
