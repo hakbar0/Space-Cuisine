@@ -2940,7 +2940,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_LocalScale.z
-      value: 17.4
+      value: 55.36
       objectReference: {fileID: 0}
     - target: {fileID: 4603933964732626, guid: 5a72db156d46f4950a697ae26b990ee7, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
